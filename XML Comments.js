@@ -23,10 +23,16 @@ if (codeElement != null) {
     dte.ActiveDocument.Selection.EndOfLine(true);
     var re = / /;
     isConstructorOrDestructor = !re.test(dte.ActiveDocument.Selection.Text);
+    if(!isConstructorOrDestructor) {
+        re = /explicit /;
+        isConstructorOrDestructor = re.test(dte.ActiveDocument.Selection.Text);
+    }
     re = /^void /;
     isVoid = re.test(dte.ActiveDocument.Selection.Text);
     re = /^virtual void /;
     isVirtualVoid = re.test(dte.ActiveDocument.Selection.Text);
+    re = /^inline void /;
+    isInlineVoid = re.test(dte.ActiveDocument.Selection.Text);
     dte.ActiveDocument.Selection.StartOfLine(1);
 
     dte.ActiveDocument.Activate();
@@ -42,7 +48,7 @@ if (codeElement != null) {
             Macro.InsertText("\"></param>")
         }
     }
-    if (!isConstructorOrDestructor && !isVoid && !isVirtualVoid) {
+    if (!isConstructorOrDestructor && !isVoid && !isVirtualVoid && !isInlineVoid) {
         dte.ActiveDocument.Selection.NewLine();
         Macro.InsertText("/// <returns></returns>");
         ++paramCount;
