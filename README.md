@@ -3,7 +3,7 @@
 Custom macros I have created for the [Macros for Visual Studio extension](https://marketplace.visualstudio.com/items?itemName=VisualStudioPlatformTeam.MacrosforVisualStudio).
 
 ## Combine XML Comment Line
-If I have already formatted my XML comments to be 80 characters wide, but then need to add more info, the line breaks will most likely need to be refactored. This macro is ment to simplify that process by easily combining XML comment lines. Run it when the cursor is on the line to be appended to the first line.
+If I have already formatted my XML comments to be 80 characters wide, but then need to add more info, the line breaks will most likely need to be refactored. This macro is meant to simplify that process by easily combining XML comment lines. Run it when the cursor is on the line to be appended to the first line.
 ```
 BEFORE:
 /// <summary>This is an XML comment that spans multiple lines because it is
